@@ -1,0 +1,25 @@
+app:
+    build: ./app
+    ports:
+        - "5000:5000"
+    links:
+        - hub:hub
+    volumes:
+        - ./app:/app
+
+hub:
+    image: selenium/hub
+    ports:
+        - "4444:4444"
+
+firefox:
+    image: selenium/node-firefox
+    links:
+        - app:app
+        - hub:hub
+
+chrome:
+    image: selenium/node-chrome
+    links:
+        - app:app
+        - hub:hub

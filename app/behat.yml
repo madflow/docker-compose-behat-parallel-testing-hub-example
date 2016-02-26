@@ -1,0 +1,10 @@
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url:  'http://app'
+      browser_name: firefox
+      sessions:
+        default:
+          selenium2:
+            browser: firefox
+            wd_host: "http://hub:4444/wd/hub"
