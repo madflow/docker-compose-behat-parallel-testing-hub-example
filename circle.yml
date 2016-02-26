@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - sudo pip install docker-compose    
+
+test:
+  override:
+    - docker-compose up -d
+    - docker-compose run app /app/run.sh
